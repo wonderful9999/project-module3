@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(value = "/")
-public class FilterLogin implements Filter {
+public class FilterLoginServlet implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;

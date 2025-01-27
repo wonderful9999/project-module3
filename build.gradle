@@ -11,11 +11,11 @@ repositories {
 }
 
 ext {
-  junitVersion = '5.11.0'
+  junitVersion = '5.11.4'
 }
 
-sourceCompatibility = '21'
-targetCompatibility = '21'
+sourceCompatibility = '23'
+targetCompatibility = '23'
 
 tasks.withType(JavaCompile) {
   options.encoding = 'UTF-8'
@@ -23,7 +23,7 @@ tasks.withType(JavaCompile) {
 
 dependencies {
   compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
-
+  compileOnly (group: 'org.projectlombok', name: 'lombok', version: '1.18.36')
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

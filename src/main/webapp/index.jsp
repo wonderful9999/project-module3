@@ -2,13 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <title></title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <h1>Hello World!</h1>
 <h2>what? работает?</h2>
-<br/>
 
 </body>
 </html>
