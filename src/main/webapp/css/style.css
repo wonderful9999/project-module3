@@ -1,6 +1,28 @@
 h1 {
-    color: blueviolet;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 50px;
 }
 h2 {
-    color: aqua;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 23px;
+    font-weight: normal;
+    margin-left: 100px;
+}
+.label_input_text {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    margin-left: 50px;
+}
+.input_text {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+}
+.confirm_button {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
 }
