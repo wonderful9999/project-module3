@@ -8,6 +8,5 @@ import jakarta.servlet.annotation.*;
 public class LoginServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("/welcome.jsp");
-        System.out.println("Get request Login Servlet");
     }
 }
