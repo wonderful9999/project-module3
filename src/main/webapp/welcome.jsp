@@ -13,14 +13,15 @@
     Они не простые! Не думай что будет легко. <br>
     Удачи юный будущий хантер :)
 </h2>
-<label class="label_input_text" for="name">Введи своё имя(имена у нас уникальные и не могут повторятся): </label>
-<input type="text"
-       class="input_text"
-       id="name"
-       name="name"
-       required
-       size="10">
-<button class="confirm_button" onclick="window.location='">подтвердить</button>
-
+<form action="" method="get">
+    <label class="label_input_text" for="name">Введи своё имя(имена у нас уникальные и не могут повторятся): </label>
+    <input type="text"
+           class="input_text"
+           id="name"
+           name="name"
+           size="10"
+           required>
+    <button class="confirm_button" >подтвердить</button>
+</form>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package org.example.project_module3.filter;
+package org.example.project_module3.servlet.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletResponse;

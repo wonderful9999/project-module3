@@ -1,4 +1,5 @@
 package org.example.project_module3.service;
 
-public class CheckName {
+public class StageService {
+
 }
