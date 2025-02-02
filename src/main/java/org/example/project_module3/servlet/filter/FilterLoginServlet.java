@@ -9,6 +9,6 @@ public class FilterLoginServlet implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        resp.sendRedirect("/hello-servlet");
+        resp.sendRedirect("/login-servlet");
     }
 }
