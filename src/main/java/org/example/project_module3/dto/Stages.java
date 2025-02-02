@@ -9,8 +9,9 @@ import java.util.Map;
 @Getter
 @NoArgsConstructor
 public class Stages {
-    Map<Integer, String> mapStages;
 
+
+    Map<Integer, String> mapStages;
     {
         mapStages = new HashMap<>() {{
             put(1, "/firstStages.jsp");
