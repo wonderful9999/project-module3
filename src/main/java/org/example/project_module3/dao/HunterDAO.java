@@ -15,21 +15,13 @@ public class HunterDAO {
     private final File file;
 
     public void save(Hunter hunter) {
-        List<Hunter> hunterList = null;
         try {
-            hunterList = objectMapper.readValue(file, new TypeReference<List<Hunter>>(){});
+            List<Hunter> hunterList = objectMapper.readValue(file, new TypeReference<>() {
+            });
             hunterList.add(hunter);
             objectMapper.writeValue(file, hunterList);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void add(Hunter hunter) {
-
-    }
-
-    public void delete(Hunter hunter) {
-
     }
 }
