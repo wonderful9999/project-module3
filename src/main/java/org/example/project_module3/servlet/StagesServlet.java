@@ -13,7 +13,7 @@ import org.example.project_module3.service.StageService;
 import java.io.IOException;
 
 @RequiredArgsConstructor
-@WebServlet(value = "/first-stage-servlet")
+@WebServlet(value = "/stages-servlet")
 public class StagesServlet extends HttpServlet {
     private final StageService stageService;
 
