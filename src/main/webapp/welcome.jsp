@@ -13,13 +13,12 @@
     Они не простые! Не думай что будет легко. <br>
     Удачи юный будущий хантер :)
 </h2>
-<form action="/login-servlet" method="get">
-    <label class="label_input_text" for="name">Введи своё имя(имена у нас уникальные и не могут повторятся): </label>
+<form action="/login-servlet" method="post">
+    <label class="label_input_text" for="name">Введи своё имя: </label>
     <input type="text"
            class="input_text"
            id="name"
            name="name"
-           size="10"
            required>
     <button class="confirm_button" >подтвердить</button>
 </form>

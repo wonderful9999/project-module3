@@ -13,11 +13,14 @@
     Итак, перед тобой встал выбор, спасти любимую возлюбленную или спасти родную мать. <br>
     Что же ты выберешь?
 </h2>
-<form action="" method="get">
-    <button class="confirm_button" >подтвердить</button>
+<form action="/negativeScenario/negativeFirstStages.jsp" method="get">
+    <button class="confirm_button" >спасти мать</button>
 </form>
-<form action="" method="get">
-    <button class="confirm_button" >подтвердить</button>
+<form action="/negativeScenario/negativeFirstStages.jsp" method="get">
+    <button class="confirm_button" >спасти возлюбленную</button>
+</form>
+<form action="/stages-servlet" method="get">
+    <button class="confirm_button" >молча вернутся домой</button>
 </form>
 </body>
 </html>

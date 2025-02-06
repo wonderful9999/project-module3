@@ -11,4 +11,9 @@ public class HunterService {
     public void saveHunter(Hunter hunter) {
         hunterDAO.save(hunter);
     }
+
+    public boolean contains(Hunter hunter) {
+        return hunterDAO.contains(hunter);
+    }
+
 }

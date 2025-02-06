@@ -24,4 +24,18 @@ public class HunterDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean contains(Hunter hunter) {
+        try {
+            List<Hunter> hunterList = objectMapper.readValue(file, new TypeReference<>() {
+            });
+            if (hunterList.contains(hunter)) {
+                return true;
+            }
+            return false;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

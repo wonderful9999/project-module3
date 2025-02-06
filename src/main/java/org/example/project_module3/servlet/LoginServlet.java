@@ -27,14 +27,14 @@ public class LoginServlet extends HttpServlet {
         hunterService = (HunterService) servletContext.getAttribute("hunterService");
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession();
 
-        Hunter newHunter = new Hunter(UUID.randomUUID(), request.getParameter("name"));
 
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        HttpSession session = req.getSession();
+        Hunter newHunter = new Hunter(UUID.randomUUID(), req.getParameter("name"));
         hunterService.saveHunter(newHunter);
         session.setAttribute("hunter", newHunter);
-
-
+        req.getRequestDispatcher("/stages-servlet").forward(req, resp);
     }
 }
