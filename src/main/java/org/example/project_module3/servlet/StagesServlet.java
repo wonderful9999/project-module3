@@ -1,21 +1,29 @@
 package org.example.project_module3.servlet;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import lombok.RequiredArgsConstructor;
 import org.example.project_module3.dto.Hunter;
 import org.example.project_module3.service.StageService;
 
 import java.io.IOException;
 
-@RequiredArgsConstructor
-@WebServlet(value = "/stages-servlet")
+
+@WebServlet(urlPatterns = "/stages-servlet")
 public class StagesServlet extends HttpServlet {
-    private final StageService stageService;
+    private StageService stageService;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        ServletContext servletContext = getServletContext();
+
+        stageService = (StageService) servletContext.getAttribute("stageService");
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

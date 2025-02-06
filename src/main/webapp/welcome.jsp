@@ -13,7 +13,7 @@
     Они не простые! Не думай что будет легко. <br>
     Удачи юный будущий хантер :)
 </h2>
-<form action="" method="get">
+<form action="/login-servlet" method="get">
     <label class="label_input_text" for="name">Введи своё имя(имена у нас уникальные и не могут повторятся): </label>
     <input type="text"
            class="input_text"
