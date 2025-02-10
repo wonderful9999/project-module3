@@ -17,14 +17,19 @@ import java.util.UUID;
 
 @WebServlet(urlPatterns = "/login-servlet")
 public class LoginServlet extends HttpServlet {
+    private final int DEFAULT_STAGE = 0;
+    private final int DEFAULT_ATTEMPTS = 0;
+    private final String NAME_ATTRIBUTE_SESSION_HUNTER = "hunter";
+    private final String NAME_ATTRIBUTE_CONTEXT_HUNTER_SERVICE = "hunterService";
+    private final String URLPARAMETER_NAME = "name";
+    private final String URL_STAGES_SERVLET = "/stages-servlet";
     private HunterService hunterService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         ServletContext servletContext = getServletContext();
-
-        hunterService = (HunterService) servletContext.getAttribute("hunterService");
+        hunterService = (HunterService) servletContext.getAttribute(NAME_ATTRIBUTE_CONTEXT_HUNTER_SERVICE);
     }
 
 
@@ -32,9 +37,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         HttpSession session = req.getSession();
-        Hunter newHunter = new Hunter(UUID.randomUUID(), req.getParameter("name"));
+        String name = req.getParameter(URLPARAMETER_NAME);
+
+        if (hunterService.containsName(name)) {
+            session.setAttribute(NAME_ATTRIBUTE_SESSION_HUNTER, hunterService.getHunter(name));
+            resp.sendRedirect(URL_STAGES_SERVLET);
+            return;
+        }
+
+        Hunter newHunter = new Hunter(UUID.randomUUID(), name, DEFAULT_STAGE, DEFAULT_ATTEMPTS);
         hunterService.saveHunter(newHunter);
-        session.setAttribute("hunter", newHunter);
-        req.getRequestDispatcher("/stages-servlet").forward(req, resp);
+        session.setAttribute(NAME_ATTRIBUTE_SESSION_HUNTER, newHunter);
+        resp.sendRedirect(URL_STAGES_SERVLET);
     }
 }

@@ -15,20 +15,23 @@ import java.io.File;
 
 @WebListener
 public class InitializationListener implements ServletContextListener {
+    private final String URL_FILE_HUNTERS_JSON = "C:\\Users\\ataic\\IdeaProjects\\project-module3\\src\\main\\resources\\hunters.json";
+    private final String NAME_ATTRIBUTE_STAGE_SERVICE = "stageService";
+    private final String NAME_ATTRIBUTE_HUNTER_SERVICE = "hunterService";
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
 
         ObjectMapper objectMapper = new ObjectMapper(new JsonFactory());
-        File file = new File("resources/hunters.json");
+        File file = new File(URL_FILE_HUNTERS_JSON);
 
         HunterDAO hunterDAO = new HunterDAO(objectMapper, file);
         HunterService hunterService = new HunterService(hunterDAO);
         StageService stageService = new StageService(new Stages());
 
-        servletContext.setAttribute("hunterService", hunterService);
-        servletContext.setAttribute("stageService", stageService);
+        servletContext.setAttribute(NAME_ATTRIBUTE_HUNTER_SERVICE, hunterService);
+        servletContext.setAttribute(NAME_ATTRIBUTE_STAGE_SERVICE, stageService);
 
     }
 }

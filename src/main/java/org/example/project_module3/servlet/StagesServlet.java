@@ -16,22 +16,24 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/stages-servlet")
 public class StagesServlet extends HttpServlet {
+    private final String NAME_ATTRIBUTE_CONTEXT_STAGE_SERVICE = "stageService";
+    private final String NAME_ATTRIBUTE_SESSION_HUNTER = "hunter";
     private StageService stageService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         ServletContext servletContext = getServletContext();
-
-        stageService = (StageService) servletContext.getAttribute("stageService");
+        stageService = (StageService) servletContext.getAttribute(NAME_ATTRIBUTE_CONTEXT_STAGE_SERVICE);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        Hunter hunter = (Hunter) session.getAttribute("hunter");
+        Hunter hunter = (Hunter) session.getAttribute(NAME_ATTRIBUTE_SESSION_HUNTER);
         hunter.setStage(hunter.getStage() + 1);
-
-        resp.sendRedirect(stageService.getStage(hunter.getStage()));
+        int tempStage = hunter.getStage();
+        req.getRequestDispatcher(stageService.getStage(tempStage)).forward(req, resp);
     }
 }

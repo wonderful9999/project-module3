@@ -16,4 +16,11 @@ public class HunterService {
         return hunterDAO.contains(hunter);
     }
 
+    public boolean containsName(String name) {
+        return hunterDAO.containsName(name);
+    }
+
+    public Hunter getHunter(String name) {
+        return hunterDAO.getHunter(name);
+    }
 }

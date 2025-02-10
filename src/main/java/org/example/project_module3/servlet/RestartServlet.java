@@ -12,14 +12,18 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/restart-servlet")
 public class RestartServlet extends HttpServlet {
+    private final int DEFAULT_STAGE = 0;
+    private final String NAME_ATTRIBUTE_SESSION_HUNTER = "hunter";
+    private final String URL_STAGES_SERVLET = "/stages-servlet";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        Hunter hunter = (Hunter) session.getAttribute("hunter");
-        hunter.setStage(1);
+        Hunter hunter = (Hunter) session.getAttribute(NAME_ATTRIBUTE_SESSION_HUNTER);
+        hunter.setStage(DEFAULT_STAGE);
+        hunter.setAttempts(hunter.getAttempts() + 1);
 
-        req.getRequestDispatcher("/stages-servlet").forward(req, resp);
+        req.getRequestDispatcher(URL_STAGES_SERVLET).forward(req, resp);
     }
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
 </head>
 <body>
@@ -13,10 +13,10 @@
     Итак, перед тобой встал выбор, спасти любимую возлюбленную или спасти родную мать. <br>
     Что же ты выберешь?
 </h2>
-<form action="/negativeScenario/negativeFirstStages.jsp" method="get">
+<form action="/negative_scenario_servlet" method="get">
     <button class="confirm_button" >спасти мать</button>
 </form>
-<form action="/negativeScenario/negativeFirstStages.jsp" method="get">
+<form action="/negative_scenario_servlet" method="get">
     <button class="confirm_button" >спасти возлюбленную</button>
 </form>
 <form action="/stages-servlet" method="get">
